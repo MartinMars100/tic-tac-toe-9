@@ -91,9 +91,9 @@ var gameRun = (function(){
         $(".p1-name").addClass("grayBackground");
       });
       
-      $("#p1-name").on('change', function() {
-        $('#p2-name').focus();
-      });
+      // $("#p1-name").on('change', function() {
+      //   $('#p2-name').focus();
+      // });
     }, // end Start function
     board: function(htmlTextP1,htmlTextP2){
       $('body div').remove();
@@ -122,6 +122,7 @@ var gameRun = (function(){
       });
       
       gameRun.Play(htmlTextP1,htmlTextP2); // After board loads, play begins
+      
 
     }, // end board function
     Play: function(htmlTextP1,htmlTextP2){ //Pass names through to winning player message
@@ -131,7 +132,7 @@ var gameRun = (function(){
       var resultArray = [];
       
       $('ul.boxes li').on('click', function() {
-        if ($(this).hasClass("box-x") || $('this').hasClass("box-o")){ // Don't allow boxes that are already filled with x/o to be clicked
+        if ($(this).hasClass('box-x') || $(this).hasClass('box-o')){ // Don't allow boxes that are already filled with x/o to be clicked
           return;  // That box is taken
         }
           
@@ -175,8 +176,8 @@ var gameRun = (function(){
            gameRun.gameOver('tie');
            break;
         case 'notOver':
-           if ($("#player1").hasClass("active")) {
-           }
+          // if ($("#player1").hasClass("active")) {
+          // }
           gameRun.newTurn();
            break;
            } // end switch
@@ -371,8 +372,8 @@ var gameRun = (function(){
         } else {
           elem.css('visibility', 'hidden');
       }    
-    }, 600);
-}); 
+      }, 600);
+    }); 
     
     }, // end computerWin function
     buildGame: function(player) {
@@ -671,6 +672,7 @@ var gameRun = (function(){
       var resultArray = [];
       var winner = "";
       if (cntTurns >= 1) {  //Switch to Computer Player
+        
         // resultArray = [];
         game = gameRun.buildGame(player); //build an array of possible Computer first moves
         scoreBox = gameRun.miniMax(game); //Use the game array to create the following states or possible moves and scores that would follow
